@@ -1,0 +1,90 @@
+#include <iostream>
+#include<math.h>
+#include<cmath>
+using namespace std;
+
+class Rhombus {
+public:
+    float x, y, a, b;
+    void change_of_size(float* a, float* b) {
+        float m, n;
+        cout << "enter a" << endl;
+        cin >> m;
+        cout << "enter b" << endl;
+        cin >> n;
+        *a = m;
+        *b = n;
+    }
+    void change_of_position(float* x, float* y) {
+        float m, n;
+        cout << "enter x" << endl;
+        cin >> m;
+        cout << "enter y" << endl;
+        cin >> n;
+        *x = m;
+        *y = n;
+    }
+    void square(float a, float b) {
+        cout << (a * b * 2) << endl;
+    }
+    void perimeter(float a, float b) {
+        cout << (sqrt((a * a) + (b * b)) * 4) << endl;
+    };
+    void vertex_coordinates(float x, float y, float a, float b) {
+        cout << "A (" << x-a << ";" << y << ")" << endl;
+        cout << "B (" << x << ";" << y + b << ")" << endl;
+        cout << "C (" << x+a << ";" << y  << ")" << endl;
+        cout << "D (" << x << ";" << y - b << ")" << endl;
+    }
+    void vertex_coordinates_90(float x, float y, float a, float b) {
+        cout << "A (" << x << ";" << y + b << ")" << endl;
+        cout << "B (" << x + a << ";" << y << ")" << endl;
+        cout << "C (" << x << ";" << y - b << ")" << endl;
+        cout << "D (" << x - a << ";" << y << ")" << endl;
+    }
+};
+int main() {
+    bool T;
+    T = true;
+    string C;
+    Rhombus Valera;
+    float m, n;
+    cout << "enter a" << endl;
+    cin >> m;
+    cout << "enter b" << endl;
+    cin >> n;
+    Valera.a = m;
+    Valera.b = n;
+    cout << "enter x" << endl;
+    cin >> m;
+    cout << "enter y" << endl;
+    cin >> n;
+    Valera.x = m;
+    Valera.y = n;
+    while (T == true)
+    {
+        cout << endl << "enter command" << endl;
+        cin >> C;
+        if (C == "exit") {
+            T = false;
+        }
+        else if (C == "change_of_size") {
+            Valera.change_of_size(&(Valera.a), &(Valera.b));
+        }
+        else if (C == "change_of_position") {
+            Valera.change_of_position(&(Valera.x), &(Valera.y));
+        }
+        else if (C == "square") {
+         Valera.square((Valera.a), (Valera.b));
+        }
+        else if (C == "perimeter") {
+            Valera.perimeter((Valera.a), (Valera.b));
+        }
+        else if (C == "vertex_coordinates") {
+            Valera.vertex_coordinates((Valera.x), (Valera.y), (Valera.a), (Valera.b));
+        }
+        else if (C == "vertex_coordinates_90") {
+            Valera.vertex_coordinates_90((Valera.x), (Valera.y), (Valera.a), (Valera.b));
+        }
+    }
+}
